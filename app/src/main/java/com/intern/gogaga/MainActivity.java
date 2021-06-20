@@ -62,9 +62,6 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     private String[] cameraPermissions;
     private String[] storagePermissions;
 
-    //image picked uri
-    private Uri s_image_uri;
-
     private LocationManager locationManager;
 
     private double latitude, longitude;
@@ -375,7 +372,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                     professionTv.setText(profession);
 
                         try {
-                            Glide.with(getApplicationContext()).load(profile).into(profile_img);
+                            Glide.with(getApplicationContext()).load(productImgUri).into(profile_img);
 
                         }
                         catch (Exception e){
@@ -458,10 +455,10 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         contentValues.put(MediaStore.Images.Media.TITLE, "Temp_Image Title");
         contentValues.put(MediaStore.Images.Media.DESCRIPTION, "Temp_Image Description");
 
-        s_image_uri = getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues);
+        productImgUri = getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues);
 
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, s_image_uri);
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, productImgUri);
         startActivityForResult(intent, IMAGE_PICK_CAMERA_CODE);
     }
 
@@ -602,12 +599,13 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         if (resultCode == RESULT_OK) {
             if (requestCode == IMAGE_PICK_GALLERY_CODE) {
                 //get picked image
-                s_image_uri = data.getData();
+                productImgUri = data.getData();
                 //set to imageView
-                profile.setImageURI(s_image_uri);
+                profile.setImageURI(productImgUri);
             } else if (requestCode == IMAGE_PICK_CAMERA_CODE) {
                 //set to imageView
-                profile.setImageURI(s_image_uri);
+                profile.setImageURI(productImgUri);
+                profile_img.setImageURI(productImgUri);
             }
         }
         super.onActivityResult(requestCode, resultCode, data);
