@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    tools:context=".MainActivity">
+    <!--Toolbar-->
+    <RelativeLayout
+        android:id="@+id/toolDashboard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_rect01"
+        android:padding="10dp">
+
+        <ImageButton
+            android:id="@+id/s_settingBtn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="8dp"
+            android:background="@null"
+            android:src="@drawable/ic_settings_white" />
+
+        <ImageButton
+            android:id="@+id/s_LogoutBtn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="8dp"
+            android:layout_toStartOf="@id/s_settingBtn"
+            android:background="@null"
+            android:src="@drawable/ic_logout_white" />
+
+        <ImageButton
+            android:id="@+id/editProBtn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="8dp"
+            android:layout_toStartOf="@id/s_LogoutBtn"
+            android:background="@null"
+            android:src="@drawable/ic_edit_white" />
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_img"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/ic_person_grey"
+            app:civ_border_color="@color/colorWhite"
+            app:civ_border_width="2dp" />
+
+        <TextView
+            android:id="@+id/nameTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@id/editProBtn"
+            android:layout_toEndOf="@+id/profile_img"
+            android:text="name"
+            android:textAllCaps="true"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/professionTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/nameTv"
+            android:layout_toStartOf="@id/editProBtn"
+            android:layout_toEndOf="@+id/profile_img"
+            android:text="Profession"
+            android:textColor="@color/colorWhite" />
+
+        <TextView
+            android:id="@+id/s_emailTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/professionTv"
+            android:layout_toEndOf="@+id/profile_img"
+            android:text="Email"
+            android:textColor="@color/colorWhite" />
+
+        <!-- Tabs: Products, Orders -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/profile_img"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/shape_rect03"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/requestTv"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/shape_rect04"
+                android:gravity="center"
+                android:text="Requests"
+                android:textColor="@color/colorBlack" />
+
+            <TextView
+                android:id="@+id/offringTv"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="offerings"
+                android:textColor="@color/colorWhite" />
+
+            <TextView
+                android:id="@+id/recommendsTv"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Recommends"
+                android:textColor="@color/colorWhite" />
+        </LinearLayout>
+    </RelativeLayout>
+    <!-- request UI -->
+    <RelativeLayout
+        android:id="@+id/requestUi"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolDashboard">
+        <!-- recyclerView -->
+        <TextView
+            android:id="@+id/requestUiText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Request Ui Appears"
+            android:textColor="@color/colorBlack" />
+    </RelativeLayout>
+    <!-- offering UI -->
+    <RelativeLayout
+        android:id="@+id/offeringUI"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolDashboard"
+        >
+        <!-- recyclerView -->
+        <TextView
+            android:id="@+id/offerUiText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Offering Ui Appears"
+            android:textColor="@color/colorBlack" />
+    </RelativeLayout>
+    <!-- recommends UI -->
+    <RelativeLayout
+        android:id="@+id/recommendsUi"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolDashboard">
+        <!-- recyclerView -->
+        <TextView
+            android:id="@+id/recommendUiText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Recommends Ui Appears"
+            android:textColor="@color/colorBlack" />
+    </RelativeLayout>
+    <!-- floating button -->
+    <RelativeLayout
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="15dp"
+        android:background="@drawable/shape_circle01"
+        android:padding="8dp">
+
+        <ImageButton
+            android:id="@+id/floatBtn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_add_white" />
+    </RelativeLayout>
+</RelativeLayout>
